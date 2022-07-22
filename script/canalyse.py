@@ -32,9 +32,13 @@ HIGHLIGHT_CSS = "styles/vs.css"
 ## html styling and diagram styling settings get here
 STYLE_REL = "./style"
 ## dictionary assigning criteria mnenonics to more human readable format 
-CRITERIA_LABELS = {"std.code.complexity.cyclomatic" : "cyclomatic complexity", \
-"std.code.filelines.comments" : "lines of comment", \
-"std.code.lines.code" : "lines of code"}
+CRITERIA_LABELS = {
+    "miext.maintainability.MIwoc": "MI w/o comments", \
+    "miext.halstead.H_Volume": "halstead volume", \
+    "std.code.complexity.cyclomatic" : "cyclomatic complexity", \
+    "std.code.lines.total" : "total lines", \
+    "std.code.lines.comments" : "lines of comments"
+}
 GEN_DATAFILE_ONLY = False
 
 loglevels = {"silent" : 0, "standard" : 1, "verbose" : 2}
@@ -221,7 +225,7 @@ def readCSVfile(datapath, module_base):
                             if each[4] == "global":
                                 for c in range(0, len(criteria_values)):
                                     old_values = each[8]
-                                    old_values[c] = int(criteria_values[c]) + int(old_values[c])
+                                    old_values[c] = float(criteria_values[c]) + float(old_values[c])
                                 each[4] = "file"
                     
                     FILELIST[filename].append([html_path, html_filename, filename, region, metrix_type, modified, line_start, line_end, criteria_values])
