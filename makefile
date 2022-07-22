@@ -5,8 +5,9 @@
 $(VERBOSE).SILENT:
 
 # settings to invoke metrix++; adapt path if necessary
-PYTHON=/usr/bin/python
-METRIXPP=/opt/metrixplusplus/metrix++.py
+PYTHON=/usr/bin/python2
+METRIXPP=/home/emonnier/metrixpp/metrix++.py
+MYEXT=/home/emonnier/metrixpp/metrixpp/myext/
 METRIXDB=metrixpp.db
 
 ANALYSE=script/canalyse.py
@@ -14,8 +15,8 @@ ANALYSE=script/canalyse.py
 CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
 
 # path from where to start analysis of sourceceode
-SRCPATH=./example-code/insecure-coding-examples-master
-MODULE_BASE=exploit
+SRCPATH=./../cc/scp/product/pioneer
+MODULE_BASE=src
 #SRCPATH=./../../../SW/Public
 #MODULE_BASE=30_Appl
 
@@ -31,7 +32,7 @@ DOCDIR=./doc
 
 # configure diagram settings
 # to add a new criteria: you add to CRITERIA_LIST the metrix++ argument AND create and add target to target 'criterias'
-CRITERIA_LIST = std.code.complexity.cyclomatic std.code.lines.code std.code.filelines.comments
+CRITERIA_LIST = ext.mi_oman.all std.code.lines.comments std.code.lines.total std.code.complexity.cyclomatic ext.halstead.all
 DIAGRAM_STYLE=diagram_style.js
 # settigs for each diagram
 CANVAS_WIDTH=600
@@ -53,10 +54,10 @@ criteria_nav := $(foreach criteria, $(CRITERIA_LIST), "<a target= 'criteria_fram
 .PHONY: all clean check directories criterias doc
 
 all: check directories $(REPORTDIR)/index.html criterias
-
+# 
 criterias: $(METRIXDB)
-	echo Converting database into file $(DATADIR_REL)/$(MODULE_BASE).js
-	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR)/$(MODULE_BASE).csv
+	echo Converting database into file $(DATADIR_ABS)/$(MODULE_BASE).js
+	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR_ABS)/$(MODULE_BASE).csv
 	$(PYTHON) $(ANALYSE) --srcpath=$(SRCPATH) --modulebase=$(MODULE_BASE) --datadir=$(DATADIR) --reportdir=$(REPORTDIR) --installdir=$(INSTALLDIR) --highlight-css=$(HIGHLIGHT_CSS) --styledir=$(STYLEDIR)
 	echo Generating HTML files for $(CRITERIA_LIST)
 	$(PYTHON) $(METRIXPP) view --log-level=ERROR --format=python > $(DATADIR)/$(MODULE_BASE).py
@@ -64,7 +65,7 @@ criterias: $(METRIXDB)
 
 $(METRIXDB):
 	echo Generating data for $(CRITERIA_LIST)
-	$(PYTHON) $(METRIXPP) collect --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE)
+	METRIXPLUSPLUS_PATH=$(MYEXT) $(PYTHON) $(METRIXPP) collect --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE)
 
 $(REPORTDIR)/index.html: 
 	echo Generating HTML header of $(REPORTDIR)/index.html 
