@@ -20,11 +20,11 @@ DATADIR = "./data"
 STYLEDIR = "./style"
 IN_FILENAME = DATADIR + os.sep + MODULE_BASE + ".py"
 CRITERIA_LABELS = {
-    "miext.maintainability.MIwoc" : {"label": "MI w/o comments", "background-color": 'lightred', "border-color":'red', "index": 20},\
-    "miext.halstead.H_Volume" : {"label": "halstead volume", "background-color": 'lightyellow', "border-color":'yellow', "index": 13},\
-    "std.code.complexity.cyclomatic" : {"label": "cyclomatic complexity", "background-color": 'orange', "border-color":'red', "index": 6},\
-    "std.code.lines.comments" : {"label": "lines of comment per file", "background-color": "lightgreen", "border-color": "green", "index": 23}, \
-    "std.code.lines.total" : {"label": "total lines per file", "background-color": "lightblue", "border-color": "blue", "index": 24}
+    "miext.maintainability.MIwoc" : {"label": "MI w/o comments", "background-color": 'lightred', "border-color":'red', "index": 7},\
+    "ext.halstead.H_Volume" : {"label": "halstead volume", "background-color": 'lightyellow', "border-color":'yellow', "index": 6},\
+    "std.code.complexity.cyclomatic" : {"label": "cyclomatic complexity", "background-color": 'orange', "border-color":'red', "index": 11},\
+    "std.code.lines.comments" : {"label": "lines of comment per file", "background-color": "lightgreen", "border-color": "green", "index": 13}, \
+    "std.code.lines.total" : {"label": "total lines per file", "background-color": "lightblue", "border-color": "blue", "index": 12}
 }
 
 _loglevels = {"error": -1, "silent" : 0, "standard" : 1, "verbose" : 2}
