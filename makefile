@@ -32,7 +32,7 @@ DOCDIR=./doc
 
 # configure diagram settings
 # to add a new criteria: you add to CRITERIA_LIST the metrix++ argument AND create and add target to target 'criterias'
-CRITERIA_LIST = miext.maintainability.MIwoc std.code.lines.comments std.code.lines.total std.code.complexity.cyclomatic ext.halstead.H_Volume ext.halstead.base
+CRITERIA_LIST = miext.maintainability.MIwoc std.code.lines.comments std.code.lines.total std.code.complexity.cyclomatic miext.halstead.H_Volume ext.halstead.base
 DIAGRAM_STYLE=diagram_style.js
 # settigs for each diagram
 CANVAS_WIDTH=600

@@ -34,7 +34,7 @@ STYLE_REL = "./style"
 ## dictionary assigning criteria mnenonics to more human readable format 
 CRITERIA_LABELS = {
     "miext.maintainability.MIwoc": "MI w/o comments", \
-    "ext.halstead.H_Volume": "halstead volume", \
+    "miext.halstead.H_Volume": "halstead volume", \
     "std.code.complexity.cyclomatic" : "cyclomatic complexity", \
     "std.code.lines.total" : "total lines", \
     "std.code.lines.comments" : "lines of comments"
