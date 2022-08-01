@@ -15,8 +15,8 @@ ANALYSE=script/canalyse.py
 CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
 
 # path from where to start analysis of sourceceode
-SRCPATH=./../cc/scp/product/pioneer
-MODULE_BASE=src
+SRCPATH=./../cc/scp/product
+MODULE_BASE=pioneer
 #SRCPATH=./../../../SW/Public
 #MODULE_BASE=30_Appl
 
@@ -32,7 +32,7 @@ DOCDIR=./doc
 
 # configure diagram settings
 # to add a new criteria: you add to CRITERIA_LIST the metrix++ argument AND create and add target to target 'criterias'
-CRITERIA_LIST = ext.mi_oman.all std.code.lines.comments std.code.lines.total std.code.complexity.cyclomatic ext.halstead.all
+CRITERIA_LIST = miext.maintainability.MIwoc std.code.lines.comments std.code.lines.total std.code.complexity.cyclomatic miext.halstead.H_Volume ext.halstead.base
 DIAGRAM_STYLE=diagram_style.js
 # settigs for each diagram
 CANVAS_WIDTH=600

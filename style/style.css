@@ -136,7 +136,23 @@ footer {
 }
 /* span.detail_type_region {
 } */
-span.detail_std_code_lines_code {
+span.detail_miext_halstead_H_Volume {
+  margin: 0.1em;
+  border: 1px solid;
+  border-color: orange;
+  padding: 0.1em;
+  background-color: yellow;
+}
+
+span.detail_miext_maintainability_MIwoc {
+  margin: 0.1em;
+  border: 1px solid;
+  border-color: red;
+  padding: 0.1em;
+  background-color: lightcoral;
+}
+
+span.detail_std_code_lines_total {
   margin: 0.1em;
   border: 1px solid;
   border-color: blue;
@@ -146,11 +162,11 @@ span.detail_std_code_lines_code {
 span.detail_std_code_complexity_cyclomatic {
   margin: 0.1em;
   border: 1px solid;
-  border-color: red;
+  border-color: darkorange;
   padding: 0.1em;
   background-color: orange;
 }
-span.detail_std_code_filelines_comments{
+span.detail_std_code_lines_comments{
   margin: 0.1em;
   border: 1px solid;
   border-color: green;
