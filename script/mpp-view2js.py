@@ -202,12 +202,16 @@ def parseViewOutput(in_filename, criteria):
                     log(3, "Found data for : " + criteria + " = '" + CRITERIA_LABELS[criteria]["label"]+ "'")
                     ret["avg"] = float(detail_data["avg"])
                     log(3, "\tAverage: " + str(ret["avg"]))
+
                     ret["min"] = int(detail_data["min"])
                     log(3, "\tMinimum: " + str(ret["min"]))
-                    ret["min"] = int(detail_data["max"])
+
+                    ret["max"] = int(detail_data["max"])
                     log(3, "\tMaximum: " + str(ret["max"]))
+
                     ret["tot"] = int(detail_data["total"])
                     log(3, "\tTotal: " + str(ret["tot"]))
+
                     for bar in detail_data["distribution-bars"]:
                         values.append(bar["count"])
                         categories.append(bar["metric"])
