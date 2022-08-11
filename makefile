@@ -15,8 +15,8 @@ ANALYSE=script/canalyse.py
 CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
 
 # path from where to start analysis of sourceceode
-SRCPATH=./../cc/scp/product
-MODULE_BASE=pioneer
+SRCPATH?=./../cc/scp/product
+MODULE_BASE?=pioneer
 #SRCPATH=./../../../SW/Public
 #MODULE_BASE=30_Appl
 
@@ -54,7 +54,12 @@ criteria_nav := $(foreach criteria, $(CRITERIA_LIST), "<a target= 'criteria_fram
 .PHONY: all clean check directories criterias doc
 
 all: check directories $(REPORTDIR)/index.html criterias
-# 
+
+multi:
+	echo Generating data for $(CRITERIA_LIST)
+	METRIXPLUSPLUS_PATH=$(MYEXT) $(PYTHON) $(METRIXPP) collect --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE)
+	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR_ABS)/$(MODULE_BASE).csv
+
 criterias: $(METRIXDB)
 	echo Converting database into file $(DATADIR_ABS)/$(MODULE_BASE).js
 	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR_ABS)/$(MODULE_BASE).csv
