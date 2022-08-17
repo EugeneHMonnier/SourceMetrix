@@ -10,6 +10,10 @@ METRIXPP=/home/emonnier/metrixpp/metrix++.py
 MYEXT=/home/emonnier/metrixpp/metrixpp/myext/
 METRIXDB=metrixpp.db
 
+# excluded files or directories
+# ^.*\.h - excludes all .h files
+EXCLUDE?= ^.*\.h shared
+
 ANALYSE=script/canalyse.py
 
 CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
@@ -17,8 +21,6 @@ CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
 # path from where to start analysis of sourceceode
 SRCPATH?=./../cc/scp/product
 MODULE_BASE?=pioneer
-#SRCPATH=./../../../SW/Public
-#MODULE_BASE=30_Appl
 
 # configure directories
 REPORTDIR=./html
@@ -55,11 +57,6 @@ criteria_nav := $(foreach criteria, $(CRITERIA_LIST), "<a target= 'criteria_fram
 
 all: check directories $(REPORTDIR)/index.html criterias
 
-multi:
-	echo Generating data for $(CRITERIA_LIST)
-	METRIXPLUSPLUS_PATH=$(MYEXT) $(PYTHON) $(METRIXPP) collect --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE)
-	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR_ABS)/$(MODULE_BASE).csv
-
 criterias: $(METRIXDB)
 	echo Converting database into file $(DATADIR_ABS)/$(MODULE_BASE).js
 	$(PYTHON) $(METRIXPP) export --log-level=ERROR | tail --lines=+1 > $(DATADIR_ABS)/$(MODULE_BASE).csv
@@ -70,7 +67,8 @@ criterias: $(METRIXDB)
 
 $(METRIXDB):
 	echo Generating data for $(CRITERIA_LIST)
-	METRIXPLUSPLUS_PATH=$(MYEXT) $(PYTHON) $(METRIXPP) collect --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE)
+	echo Excluding files/folders: $(EXCLUDE) 
+	METRIXPLUSPLUS_PATH=$(MYEXT) $(PYTHON) $(METRIXPP) collect $(foreach exclusion, $(EXCLUDE), "--ef=$(exclusion)") --log-level=ERROR --db-file=$(METRIXDB) $(addprefix '--', $(CRITERIA_LIST)) -- $(SRCPATH)/$(MODULE_BASE) 
 
 $(REPORTDIR)/index.html: 
 	echo Generating HTML header of $(REPORTDIR)/index.html 
@@ -118,7 +116,7 @@ clean:
 	$(info $(shell chmod -f 777 $(DATADIR)/*.*))				# workaround for https://www.virtualbox.org/ticket/16463
 	rm -f $(DATADIR)/*.*
 	$(info $(shell chmod -f 777 $(REPORTDIR)/*.html))				# workaround for https://www.virtualbox.org/ticket/16463
-	rm -f $(REPORTDIR)/index.html
+	rm -rf $(REPORTDIR)/*
 	$(foreach file, $(CRITERIA_LIST), rm -f $(REPORTDIR)/$(MODULE_BASE).$(file).html)
 	rm -f $(METRIXDB)
 
