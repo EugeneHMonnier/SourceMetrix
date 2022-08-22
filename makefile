@@ -1,26 +1,27 @@
 # makefile for generating metrix++ based html output.
 # (c) 2020 Marc Stoerzel
+# modifications to include Maintainability Index & exclusion rules by Eugene Monnier
 
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
 # settings to invoke metrix++; adapt path if necessary
 PYTHON=/usr/bin/python2
-METRIXPP=/home/emonnier/metrixpp/metrix++.py
-MYEXT=/home/emonnier/metrixpp/metrixpp/myext/
+METRIXPP=/path/to/metrix++.py
+MYEXT=/path/to/metrixpp/myext/
 METRIXDB=metrixpp.db
 
 # excluded files or directories
 # ^.*\.h - excludes all .h files
-EXCLUDE?= ^.*\.h shared
+EXCLUDE?=
 
 ANALYSE=script/canalyse.py
 
 CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
 
 # path from where to start analysis of sourceceode
-SRCPATH?=./../cc/scp/product
-MODULE_BASE?=pioneer
+SRCPATH?=./path/to
+MODULE_BASE?=repo
 
 # configure directories
 REPORTDIR=./html

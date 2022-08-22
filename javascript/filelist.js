@@ -1,6 +1,7 @@
 /**
  * @file filelist.js
  * @copyright (c) 2020 Marc Stoerzel
+ * modifications to include Maintainability Index by Eugene Monnier
  * 
  * Functions to create DOM elements to represent a filelist based on data, which need to be 
  * defined as global value 'combined' in some other script.
