@@ -3,6 +3,7 @@
 ##
 # @file mpp-view2js.py
 # @copyright (c) 2020 Marc Stoerzel
+# modifications to include Maintainability Index by Eugene Monnier
 # @brief Parses the 'view --format=python' output of metrix++ to generate HTML and Javascript.
 #
 # Generate HTML and Javascript files to display diagram of distribution for criterias.
