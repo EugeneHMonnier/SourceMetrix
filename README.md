@@ -8,9 +8,9 @@ The output of metrix++ 'view' and 'export' commands is used to create statically
 The visual appearance (web page look) can be controlled by CSS styling plus settings in a file called 'diagram_style.js'. Both files are located in subfolder 'style' (if not configured otherwise in makefile).
 
 ## REQUIREMENTS
-Clone repository of MetrixPlusPlus from EugeneHMonnier repository containing modification needed to use Maintainability extension with SourceMetrix to your local machine.
+Clone repository of MetrixPlusPlus from EugeneHMonnier, containing modifications needed to use Maintainability Index extension with SourceMetrix, to your local machine. Will not work with original version of MetrixPlusPlus.
 
-[MetrixPlusPlus Repository modified by Eugene Monnier](https://github.com/EugeneHMonnier/metrixplusplus)
+[MetrixPlusPlus Repository modified by EugeneHMonnier](https://github.com/EugeneHMonnier/metrixplusplus)
 
 ## HOW TO USE
 Download or copy all files of this package into a directory of your choice (referred to as /installation directory/). In the installation folder there's a makefile, which can be edited as a text file. You may have to adjust some path settings, i. e. paths where python and metrix++ are installed to or the root folder of the sourcecode you want to analyse ('SRCPATH').
@@ -19,10 +19,11 @@ After doing these configuration it is as simple as running 'make all' in the fol
 
 ## MAKEFILE VALUES TO MODIFY
 These are the variables that you will likely need to modify:
-- `METRIXPP` (Absolute path to location of metrixplusplus)
-- `MYEXT` (Absolute path to location of extensions for metrixplusplus)
-- `SRCPATH` (Relative path from SourceMeterix to the directory you want to analyse)
-- `MODULEBASE` (Folder in directory you want to analyse)
+- `METRIXPP` (Absolute path to location of Metrix++)
+- `MYEXT` (Absolute path to location of extensions for Metrix++)
+- `SRCPATH` (Relative path from SourceMeterix to the directory to analyse)
+- `MODULEBASE` (Folder in directory to analyse with Metrix++)
+- `EXCLUDE` (List {space separtated} of files and folders contained in `MODULEBASE` to exclude from analysis)
 
 You may also need to modify the following if location is not default for your setup:
 - `PYTHON` (Absolute path to location of python2)

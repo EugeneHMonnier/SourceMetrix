@@ -32,8 +32,8 @@ iframe { border: none; }
   margin: 0.1em;
   border: 1px solid;
   border-radius: 0 0.5em 0.5em 0.5em;
-  border-color: #D5D5D5;
-  background-color: #F1F3F4;
+  border-color: blue;
+  background-color: lightblue;
   padding: 0.3em;
   display: block;
 }
@@ -54,8 +54,8 @@ navigation {
   margin: 0;
   border: 1px solid;
   border-radius: 0 0 0.5em 0.5em;
-  border-color: #D5D5D5;
-  background-color: #F1F3F4;
+  border-color: blue;
+  background-color: lightblue;
   padding: 0.3em;
   display: block;
   text-align: justify;
@@ -112,10 +112,10 @@ footer {
 }
 .details_head {
   border: 1px solid;
-  border-color: black;
+  border-color: blue;
   border-radius: 0.5em 0.5em 0 0;
   padding: 0.3em;
-  background-color: grey;
+  background-color: lightblue;
   color: whitesmoke;
   width: 100%;
 }
@@ -126,8 +126,8 @@ footer {
   margin: 0;
   border: 1px solid;
   border-radius: 0 0 0.5em 0.5em;
-  border-color: #D5D5D5;
-  background-color: #F1F3F4;
+  border-color: blue;
+  background-color: lightblue;
   padding: 0.3em;
 }
 .detail_wrapper>a {
@@ -139,17 +139,17 @@ footer {
 span.detail_miext_halstead_H_Volume {
   margin: 0.1em;
   border: 1px solid;
-  border-color: orange;
+  border-color: blue;
   padding: 0.1em;
-  background-color: yellow;
+  background-color: lightblue;
 }
 
 span.detail_miext_maintainability_MIwoc {
   margin: 0.1em;
   border: 1px solid;
-  border-color: red;
+  border-color: blue;
   padding: 0.1em;
-  background-color: lightcoral;
+  background-color: lightblue;
 }
 
 span.detail_std_code_lines_total {
@@ -162,16 +162,16 @@ span.detail_std_code_lines_total {
 span.detail_std_code_complexity_cyclomatic {
   margin: 0.1em;
   border: 1px solid;
-  border-color: darkorange;
+  border-color: blue;
   padding: 0.1em;
-  background-color: orange;
+  background-color: lightblue;
 }
 span.detail_std_code_lines_comments{
   margin: 0.1em;
   border: 1px solid;
-  border-color: green;
+  border-color: blue;
   padding: 0.1em;
-  background-color: lightgreen;
+  background-color: lightblue;
 }
 
 /* line numbers for sourcecode */
@@ -188,10 +188,10 @@ h1 {
   font-size: 3em;
   margin: 0;
   border: 1px solid;
-  border-color: black;
+  border-color: blue;
   border-radius: 0.5em 0.5em 0 0;
   padding: 0.1em;
-  background-color: grey;
+  background-color: lightblue;
   color: whitesmoke;
 }
 
