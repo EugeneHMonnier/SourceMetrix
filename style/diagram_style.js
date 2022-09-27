@@ -22,9 +22,9 @@ DiagramStyles.set('std.code.complexity.cyclomatic',
 );
 
 DiagramStyles.set('std.code.lines.comments',
-    new DiagramStyle('std.code.lines.comments', 'lines of comment per file', 'lightblue', 'blue', 14)
+    new DiagramStyle('std.code.lines.comments', 'lines of comment per file', 'lightblue', 'blue', 13)
 );
 
 DiagramStyles.set('std.code.lines.total',
-    new DiagramStyle('std.code.lines.total', 'total lines per file', 'lightblue', 'blue', 13)
+    new DiagramStyle('std.code.lines.total', 'total lines per file', 'lightblue', 'blue', 14)
 );
