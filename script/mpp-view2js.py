@@ -24,8 +24,8 @@ CRITERIA_LABELS = {
     "miext.maintainability.MIwoc" : {"label": "MI w/o comments", "background-color": 'lightblue', "border-color": 'blue', "index": 11},\
     "miext.halstead.H_Volume" : {"label": "halstead volume", "background-color": 'lightblue', "border-color": 'blue', "index": 6},\
     "std.code.complexity.cyclomatic" : {"label": "cyclomatic complexity", "background-color": 'lightblue', "border-color": 'blue', "index": 12},\
-    "std.code.lines.comments" : {"label": "lines of comment per file", "background-color": "lightblue", "border-color": "blue", "index": 14}, \
-    "std.code.lines.total" : {"label": "total lines per file", "background-color": "lightblue", "border-color": "blue", "index": 13}
+    "std.code.lines.comments" : {"label": "lines of comment per file", "background-color": "lightblue", "border-color": "blue", "index": 13}, \
+    "std.code.lines.total" : {"label": "total lines per file", "background-color": "lightblue", "border-color": "blue", "index": 14}
 }
 
 _loglevels = {"error": -1, "silent" : 0, "standard" : 1, "verbose" : 2}
