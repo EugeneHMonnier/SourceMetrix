@@ -1,19 +1,21 @@
 # Metrix2HTML  {#mainpage}
-This is the aim to create a nicer looking frontend for the output of the tool Metrix++ (https://metrixplusplus.github.io/home.html#overview_section).
+This is the aim to create a nicer looking frontend for the output of the tool [Metrix++](https://metrixplusplus.github.io/).
 
-By running metrix++ one can get a multitude of code metrics for a given C source code. Metrix by itself features a Textual User Interface to give output by iuse of the 'view' command. The basic idea was to turn this textua output into somewhat more visually appealing by making use of chart.js (https://www.chartjs.org/).
+By running Metrix++ one can get a multitude of code metrics for a given C source code. Metrix by itself features a Textual User Interface to give output by iuse of the 'view' command. The basic idea was to turn this textua output into somewhat more visually appealing by making use of [chart.js](https://www.chartjs.org/).
 
-The output of metrix++ 'view' and 'export' commands is used to create statically (no runtime on a webserver) a set of html files. In current version this is controlled by a makefile (cf. planning section on future approach). 
+The output of Metrix++ 'view' and 'export' commands is used to create statically (no runtime on a webserver) a set of html files. In current version this is controlled by a makefile (cf. planning section on future approach). 
 
 The visual appearance (web page look) can be controlled by CSS styling plus settings in a file called 'diagram_style.js'. Both files are located in subfolder 'style' (if not configured otherwise in makefile).
 
 ## REQUIREMENTS
-Clone repository of MetrixPlusPlus from EugeneHMonnier, containing modifications needed to use Maintainability Index extension with SourceMetrix, to your local machine. Will not work with original version of MetrixPlusPlus.
-
-[MetrixPlusPlus Repository modified by EugeneHMonnier](https://github.com/EugeneHMonnier/metrixplusplus)
+- Linux/WSL
+- Python 2
+- [MetrixPlusPlus Repository modified by EugeneHMonnier](https://github.com/EugeneHMonnier/metrixplusplus)
 
 ## HOW TO USE
-Download or copy all files of this package into a directory of your choice (referred to as /installation directory/). In the installation folder there's a makefile, which can be edited as a text file. You may have to adjust some path settings, i. e. paths where python and metrix++ are installed to or the root folder of the sourcecode you want to analyse ('SRCPATH').
+Download/clone all files of this repository into a directory of your choice (referred to as /installation directory/). Also download/clone the repository of MetrixPlusPlus from EugeneHMonnier, containing modifications needed to use Maintainability Index extension with SourceMetrix, to your local machine. This version of SourceMetrix will not work with original version of MetrixPlusPlus. 
+
+In the installation directory there's a makefile, which can be edited as a text file. You may have to adjust some path settings, i. e. paths where python and Metrix++ are installed to or the root folder of the sourcecode you want to analyse ('SRCPATH'). See the [section below](#makefile-values-to-modify) for which makefile values to modify.
 
 After doing these configuration it is as simple as running 'make all' in the folder where the makefile is located. This shall generated a set of html files in the subfolder 'html' (by default) of your /installation directory/. Opening this in a browser with 'javascript enabled' shall give you full access on your code analysis features.
 
@@ -24,12 +26,13 @@ These are the variables that you will likely need to modify:
 - `SRCPATH` (Relative path from SourceMeterix to the directory to analyse)
 - `MODULEBASE` (Folder in directory to analyse with Metrix++)
 - `EXCLUDE` (List {space separtated} of files and folders contained in `MODULEBASE` to exclude from analysis)
+  - _Important note: only works with folder/file names, not paths. If `MODULEBASE` contains multiple folders/files with the same name all folders/files with that name will be excluded. All sub-folders of an excluded folder will be excluded._ 
 
 You may also need to modify the following if location is not default for your setup:
 - `PYTHON` (Absolute path to location of python2)
 
 ## HOW IT WORKS
-The central makefile runs metrix++ in the background and creates an index.html and other html and javascript (*.js) files. The file 'index.html' serves as the starting point for the WUI (Web User Interface). It incorporates chart.js, the CSS file style.css and diagram_style.js. Where the CSS file can be used pretty forward to adopt visual appearance of the various html elements (cf. section on style.css for details), the diagram_style.js file gives reference to which analysis criteria are viewable and how according diagrams are styled.
+The central makefile runs Metrix++ in the background and creates an index.html and other html and javascript (*.js) files. The file 'index.html' serves as the starting point for the WUI (Web User Interface). It incorporates chart.js, the CSS file style.css and diagram_style.js. Where the CSS file can be used pretty forward to adopt visual appearance of the various html elements (cf. section on style.css for details), the diagram_style.js file gives reference to which analysis criteria are viewable and how according diagrams are styled.
 
 ## WHAT YOU GET
 Central file is the makefile in the /installation directory/. By editing the makefile you can adjust most of the other file locations. By default directory layout is as follows:
@@ -79,22 +82,22 @@ It holds the navigation part consisting of the headline reading the module's nam
 It splits up the WUI by /iframes/, one for the overview area and another one for the details area. The indexfile itself builds up the filelist by including 'filelist.js'.
 
 ### MAKEFILE
-The makefile consists of a configuration part, defintion of some generic and some specific targets. The generic targets are standard targets like 'all' (which is first defined target and therefore default), 'clean' and other helpful targets like 'check' to check for prerequisits like installed and runnable metrix++, or 'directories' to check for and create defined directories.
+The makefile consists of a configuration part, defintion of some generic and some specific targets. The generic targets are standard targets like 'all' (which is first defined target and therefore default), 'clean' and other helpful targets like 'check' to check for prerequisits like installed and runnable Metrix++, or 'directories' to check for and create defined directories.
 
 #### makefile settings
 By editing the makefile in a text editor you may alter the following settings:
-- METRIXPP        path pointing to metrix++.py
+- METRIXPP        path pointing to Metrix++.py
 - PYTHON          path pointing to Python interpreter
 - CHARTMINJS      URL where to get chart.min.js from
 - SRCPATH         path from where to start analysis of sourceceode
 - MODULE_BASE     sourcecode is assumed to belong to a module (or application)
 - REPORTDIR       directory to store generated html files to 
-- DATADIR         directory to store intermediate files generated from data collected by metrix++
+- DATADIR         directory to store intermediate files generated from data collected by Metrix++
 - STYLEDIR        html styling and diagram styling settings get here
 - INSTALLDIR      path where highlight.js is installed to
 - HIGHLIGHT_CSS   stylesheet to use by highlight.js for sourcecode highlighting
 - SCRIPTDIR       directory containing filelist.js and other non-generated javascript code
-- CRITERIA_LIST   list of space separated code metrics arguments to passs to 'collect' function of metrix++ 
+- CRITERIA_LIST   list of space separated code metrics arguments to passs to 'collect' function of Metrix++ 
 - DIAGRAM_STYLE   name of javascript filename defining the diagrams colors and datasource
 - CANVAS_WIDTH    width of each diagram created for the overview
 - CANVAS_HEIGHT   height of each diagram created for the overview
