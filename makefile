@@ -6,7 +6,7 @@
 $(VERBOSE).SILENT:
 
 # settings to invoke metrix++; adapt path if necessary
-PYTHON=/usr/bin/python2
+PYTHON=/usr/bin/python3
 METRIXPP=/path/to/metrix++.py
 MYEXT=/path/to/metrixpp/myext/
 METRIXDB=metrixpp.db
