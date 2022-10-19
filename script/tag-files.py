@@ -20,46 +20,47 @@ LOGLEVEL = 1
 # Print version information and exit
 ##
 def printVersion():
-    print "tag-files.py 0.4"
-    print "Copyright (c) 2020 Marc Stoerzel"
+    print ("tag-files.py 0.4")
+    print ("Copyright (c) 2020 Marc Stoerzel")
+    
 
 ##
 # Print info how to use from command line.
 ##
 def printUsage():
-    print "usage:", sys.argv[0], "[OPTION] csv-file"
-    print "Parses the cvs output of metrix++ and add, delete or modify the column 'tag' for a list of files."
-    print "By default the content of csv-file is replaced by the modified content."
-    print "Options and arguments:"
-    print "  -h, --help             print this help message and exit"
-    print "  --silent               turn on silent mode: no output except in case of error"
-    print "  --verbose              enable more elaborative output"
-    print "  -v, --version          print version information and exit"
-    print "  -o, --outfile=OUTFILE  instead of overwriting csv-foile write content to OUTFILE"
-    print "  -t, --tagname=TAGNAME  use TAGNAME instead of 'tag'"
-    print "Tags can be added, deleted or modified for a single file, a group of files or a list of files."
+    print ("usage:"), sys.argv[0], ("[OPTION] csv-file")
+    print ("Parses the cvs output of metrix++ and add, delete or modify the column 'tag' for a list of files.")
+    print ("By default the content of csv-file is replaced by the modified content.")
+    print ("Options and arguments:")
+    print ("  -h, --help             print this help message and exit")
+    print ("  --silent               turn on silent mode: no output except in case of error")
+    print ("  --verbose              enable more elaborative output")
+    print ("  -v, --version          print version information and exit")
+    print ("  -o, --outfile=OUTFILE  instead of overwriting csv-foile write content to OUTFILE")
+    print ("  -t, --tagname=TAGNAME  use TAGNAME instead of 'tag'")
+    print ("Tags can be added, deleted or modified for a single file, a group of files or a list of files.")
     # print "The generic format is <OPERATOR><SELECTOR>=<TAG>, where"
     # print "  <OPERATOR> can be one of {'+', '-', '@'}"
     # print "      use '+' to add a tag"
     # print "      use '-' to remove a tag"
     # print "      use '@' to change an existing tag, in this case TAG has the format <OLDVALUE>:<NEWVALUE>"
-    print "The generic format is <OPERATOR> <SELECTOR>:<TAG>, where"
-    print "  <OPERATOR> can be one of {'--add' or '-a', '--remove' or '-r', '--change' or '-c'}"
-    print "      use '--add' to add a tag"
-    print "      use '--remove' to remove a tag"
-    print "      use '--change' to change an existing tag, in this case TAG has the format <OLDVALUE>=<NEWVALUE>"
-    print "  <SELECTOR> can have three different formats"
-    print "      a single filename"
-    print "      a valid filename qualifier as accepted by glob()"
-    print "      #<listfile> filename of a file containing a list of filenames, one in each row"
-    print "  <TAG> is the textual tag to add, delete or modify. The text may only contain alphanumeric characters."
-    print ""
-    print "Example:"
-    print "  +*.bak=BACKUP add the tag 'BACKUP' to all files with extension'.bak'"
-    print "  @*=BACKUP:OBSOLETE at any entry (selector=*) change the tag from BACKUP to OBSOLETE"
-    print ""
-    print "Attention:"
-    print "Order of operations is not guaranteed to be execute in order of appearance on command line."
+    print ("The generic format is <OPERATOR> <SELECTOR>:<TAG>, where")
+    print ("  <OPERATOR> can be one of {'--add' or '-a', '--remove' or '-r', '--change' or '-c'}")
+    print ("      use '--add' to add a tag")
+    print ("      use '--remove' to remove a tag")
+    print ("      use '--change' to change an existing tag, in this case TAG has the format <OLDVALUE>=<NEWVALUE>")
+    print ("  <SELECTOR> can have three different formats")
+    print ("      a single filename")
+    print ("      a valid filename qualifier as accepted by glob()")
+    print ("      #<listfile> filename of a file containing a list of filenames, one in each row")
+    print ("  <TAG> is the textual tag to add, delete or modify. The text may only contain alphanumeric characters.")
+    print ("")
+    print ("Example:")
+    print ("  +*.bak=BACKUP add the tag 'BACKUP' to all files with extension'.bak'")
+    print ("  @*=BACKUP:OBSOLETE at any entry (selector=*) change the tag from BACKUP to OBSOLETE")
+    print ("")
+    print ("Attention:")
+    print ("Order of operations is not guaranteed to be execute in order of appearance on command line.")
 
 ##
 # Print a log message to stdout if loglevel is set appropriate.

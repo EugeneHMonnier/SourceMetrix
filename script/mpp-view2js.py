@@ -39,60 +39,61 @@ DIAG_HEIGHT = 280
 # Print version information and exit
 ##
 def printVersion():
-    print "mpp-view2js.py 0.2 "
-    print "Copyright (c) 2020 Marc Stoerzel"
+    print ("mpp-view2js.py 0.2 ")
+    print ("Copyright (c) 2020 Marc Stoerzel")
+    
 
 ##
 # Print info how to use from command line.
 ##
 def printUsage():
-    print "usage:", sys.argv[0], "[OPTION] [in-file]"
-    print "Parses the 'view --format=python' of metrix++ to generate Javascript datafiles."
-    print "Options and arguments:"
-    print "  -h, --help                 print this help message and exit"
-    print "  --silent                   turn on silent mode: no output except in case of error"
-    print "  --verbose                  enable more elaborative output"
-    print "  -v, --version              print version information and exit"
-    print "  --gen-datafile-only        generate only javascript data file (no HTML is generated)"
-    print "  -m, --modulebase=DIR       shall be name of the sourcecode's root folder"
-    print "                                 defaults to:", MODULE_BASE
-    print "  -r, --reportdir=DIR        the output directory of the generated html files"
-    print "                                 defaults to:", REPORTDIR_REL
-    print "  -d, --datadir=DIR          directory to store converted Javascrip output to"
-    print "                                 defaults to:", DATADIR
-    print "  -y, --styledir=DIR         directory containing the generic style.css file"
-    print "                                  defaults to:", STYLEDIR
-    print "  in-file                    input file for conversion; shall be output of metrix++ view command"
-    print "                                 defaults to:", DATADIR + os.sep + MODULE_BASE + ".py"
-    print "  -l, --criteria-labels=DICT dictionary, where "
-    print "                                 key = mnemnonic of the criteria and "
-    print "                                 value = dictionary with following items"
-    print "                                     label = human readable label"
-    print "                                     background-color = background- or fill-color of the diagram bars"
-    print "                                     border-color = border-color of the diagram bars"
-    print "                                     index = index of column in the overall data file"
-    print "                                 defaults to:", CRITERIA_LABELS
-    print "  -c, --chart-js=URL         URL from where to include cahrt.min.js"
-    print "                                 defaults to:", CHARTMINJS
-    print "  -w, --diagram-width=x      width of cahrt.js diagram canvas"
-    print "                                 deafaults to: ", DIAG_WIDTH
-    print "  -t, --diagram-height=y      height of cahrt.js diagram canvas"
-    print "                                 deafaults to: ", DIAG_HEIGHT
+    print ("usage:"), sys.argv[0], ("[OPTION] [in-file]")
+    print ("Parses the 'view --format=python' of metrix++ to generate Javascript datafiles.")
+    print ("Options and arguments:")
+    print ("  -h, --help                 print this help message and exit")
+    print ("  --silent                   turn on silent mode: no output except in case of error")
+    print ("  --verbose                  enable more elaborative output")
+    print ("  -v, --version              print version information and exit")
+    print ("  --gen-datafile-only        generate only javascript data file (no HTML is generated)")
+    print ("  -m, --modulebase=DIR       shall be name of the sourcecode's root folder")
+    print ("                                 defaults to:"), MODULE_BASE
+    print ("  -r, --reportdir=DIR        the output directory of the generated html files")
+    print ("                                 defaults to:"), REPORTDIR_REL
+    print ("  -d, --datadir=DIR          directory to store converted Javascrip output to")
+    print ("                                 defaults to:"), DATADIR
+    print ("  -y, --styledir=DIR         directory containing the generic style.css file")
+    print ("                                  defaults to:"), STYLEDIR
+    print ("  in-file                    input file for conversion; shall be output of metrix++ view command")
+    print ("                                 defaults to:"), DATADIR + os.sep + MODULE_BASE + (".py")
+    print ("  -l, --criteria-labels=DICT dictionary, where ")
+    print ("                                 key = mnemnonic of the criteria and ")
+    print ("                                 value = dictionary with following items")
+    print ("                                     label = human readable label")
+    print ("                                     background-color = background- or fill-color of the diagram bars")
+    print ("                                     border-color = border-color of the diagram bars")
+    print ("                                     index = index of column in the overall data file")
+    print ("                                 defaults to:"), CRITERIA_LABELS
+    print ("  -c, --chart-js=URL         URL from where to include cahrt.min.js")
+    print ("                                 defaults to:"), CHARTMINJS
+    print ("  -w, --diagram-width=x      width of cahrt.js diagram canvas")
+    print ("                                 deafaults to: "), DIAG_WIDTH
+    print ("  -t, --diagram-height=y      height of cahrt.js diagram canvas")
+    print ("                                 deafaults to: "), DIAG_HEIGHT
 
 ##
 # Print global paramter settings.
 ##
 def dumpParameters():
-    print "Parameters set as"
-    print "  --modulebase      =", MODULE_BASE
-    print "  --datadir         =", DATADIR
-    print "  --reportdir       =", REPORTDIR_REL
-    print "  --styledir        =", STYLEDIR
-    print "  --criteria-labels =", CRITERIA_LABELS
-    print "  --gen-datafile-only =", GEN_DATAFILE_ONLY
-    print "  --chart-js =", CHARTMINJS
-    print "  --diagram-width =", DIAG_WIDTH
-    print "  --diagram-height =", DIAG_HEIGHT
+    print ("Parameters set as")
+    print ("  --modulebase      ="), MODULE_BASE
+    print ("  --datadir         ="), DATADIR
+    print ("  --reportdir       ="), REPORTDIR_REL
+    print ("  --styledir        ="), STYLEDIR
+    print ("  --criteria-labels ="), CRITERIA_LABELS
+    print ("  --gen-datafile-only ="), GEN_DATAFILE_ONLY
+    print ("  --chart-js ="), CHARTMINJS
+    print ("  --diagram-width ="), DIAG_WIDTH
+    print ("  --diagram-height ="), DIAG_HEIGHT
 
 ##
 # Print a log message to stdout if loglevel is set appropriate.

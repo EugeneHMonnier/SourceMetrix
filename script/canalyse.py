@@ -238,53 +238,53 @@ def readCSVfile(datapath, module_base):
 # Print version information and exit
 ##
 def printVersion():
-    print "canalyse.py 0.4 "
-    print "Copyright (c) 2020 Marc Stoerzel"
+    print ("canalyse.py 0.4 ")
+    print ("Copyright (c) 2020 Marc Stoerzel")
 
 ##
 # Print info how to use from command line.
 ##
 def printUsage():
-    print "usage:", sys.argv[0], "[OPTION]"
-    print "Parses the cvs output of metrix++ to generate HTML-files and optionally a Javascript datafile."
-    print "Options and arguments:"
-    print "  -h, --help                 print this help message and exit"
-    print "  --silent                   turn on silent mode: no output except in case of error"
-    print "  --verbose                  enable more elaborative output"
-    print "  -v, --version              print version information and exit"
-    print "  --gen-datafile-only        generate only javascript data file (no HTML is generated)"
-    print "  -s, --srcpath=DIR          directory containing the sourcecode root folder"
-    print "                                 defaults to:", SRCPATH
-    print "  -m, --modulebase=DIR       shall be name of the sourcecode's root folder"
-    print "                                 defaults to:", MODULE_BASE
-    print "  -d, --datadir=DIR          directory containing the raw data of the metrix++ export"
-    print "                                 defaults to:", DATADIR_REL
-    print "  -r, --reportdir=DIR        the output directory of the generated html files"
-    print "                                 defaults to:", REPORTDIR_REL
-    print "  -i, --installdir=DIR       location where 'highlight' package is installed"
-    print "                                 defaults to:", HIGHLIGHT_REL
-    print "  -c, --highlight-css=FILE   filename of CSS file to be used for syntax highlighting"
-    print "                                  defaults to:", HIGHLIGHT_CSS
-    print "  -y, --styledir=DIR         directory containing the generic style.css file"
-    print "                                  defaults to:", STYLE_REL
-    print "  -l, --criteria-labels=DICT dictionary, where "
-    print "                                 key = mnemnonic of the criteria and "
-    print "                                 value = human readable label"
-    print "                                 defaults to:", CRITERIA_LABELS
+    print ("usage:", sys.argv[0], "[OPTION]")
+    print ("Parses the cvs output of metrix++ to generate HTML-files and optionally a Javascript datafile.")
+    print ("Options and arguments:")
+    print ("  -h, --help                 print this help message and exit")
+    print ("  --silent                   turn on silent mode: no output except in case of error")
+    print ("  --verbose                  enable more elaborative output")
+    print ("  -v, --version              print version information and exit")
+    print ("  --gen-datafile-only        generate only javascript data file (no HTML is generated)")
+    print ("  -s, --srcpath=DIR          directory containing the sourcecode root folder")
+    print ("                                 defaults to:"), SRCPATH
+    print ("  -m, --modulebase=DIR       shall be name of the sourcecode's root folder")
+    print ("                                 defaults to:"), MODULE_BASE
+    print ("  -d, --datadir=DIR          directory containing the raw data of the metrix++ export")
+    print ("                                 defaults to:"), DATADIR_REL
+    print ("  -r, --reportdir=DIR        the output directory of the generated html files")
+    print ("                                 defaults to:"), REPORTDIR_REL
+    print ("  -i, --installdir=DIR       location where 'highlight' package is installed")
+    print ("                                 defaults to:"), HIGHLIGHT_REL
+    print ("  -c, --highlight-css=FILE   filename of CSS file to be used for syntax highlighting")
+    print ("                                  defaults to:"), HIGHLIGHT_CSS
+    print ("  -y, --styledir=DIR         directory containing the generic style.css file")
+    print ("                                  defaults to:"), STYLE_REL
+    print ("  -l, --criteria-labels=DICT dictionary, where ")
+    print ("                                 key = mnemnonic of the criteria and ")
+    print ("                                 value = human readable label")
+    print ("                                 defaults to:"), CRITERIA_LABELS
 
 ##
 # Print global paramter settings.
 ##
 def dumpParameters():
-    print "Parameters set as"
-    print "  --srcpath         =", SRCPATH
-    print "  --modulebase      =", MODULE_BASE
-    print "  --datadir         =", DATADIR_REL
-    print "  --reportdir       =", REPORTDIR_REL
-    print "  --installdir      =", HIGHLIGHT_REL
-    print "  --highlight-css   =", HIGHLIGHT_CSS
-    print "  --styledir        =", STYLE_REL
-    print "  --criteria-labels =", CRITERIA_LABELS
+    print ("Parameters set as")
+    print ("  --srcpath         ="), SRCPATH
+    print ("  --modulebase      ="), MODULE_BASE
+    print ("  --datadir         ="), DATADIR_REL
+    print ("  --reportdir       ="), REPORTDIR_REL
+    print ("  --installdir      ="), HIGHLIGHT_REL
+    print ("  --highlight-css   ="), HIGHLIGHT_CSS
+    print ("  --styledir        ="), STYLE_REL
+    print ("  --criteria-labels ="), CRITERIA_LABELS
 
 ##
 # Print a log message to stdout if loglevel is set appropriate.
