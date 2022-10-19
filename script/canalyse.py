@@ -11,11 +11,11 @@
 import csv
 import os
 import math
-import cgi
 import io
 import getopt
 import sys
 import ast
+import html
 
 ## path from where to start analysis of sourceceode
 SRCPATH = "./../../../SW/Public"
@@ -109,7 +109,7 @@ def copyCode2HTML(path, destfilename, srcfilename, region, type, line_start, lin
             for criteriaValue in criterias:
                 if not criteriaValue == "":
                     if i < len(labels):
-                        if CRITERIA_LABELS.has_key(labels[i]):
+                        if labels[i] in CRITERIA_LABELS.keys():
                             destfile.write(u"<span class='detail_" + labels[i].replace(".", "_") + u"'>")
                             destfile.write(CRITERIA_LABELS[labels[i]] + u": " + str(criteriaValue) + u"</span>\n")
                 i += 1
@@ -122,7 +122,7 @@ def copyCode2HTML(path, destfilename, srcfilename, region, type, line_start, lin
             destfile.write(u"    <pre class='sourcecode'><code class='#language-c'>\n")
             for linenum in range(line_start -1, lastline):
                 destfile.write(u"<span title='" + str(linenum +1) + u"'>")
-                destfile.write(cgi.escape(src_txt[linenum]))
+                destfile.write(html.escape(src_txt[linenum]))
                 destfile.write(u"</span>")
             destfile.write(u"    </code></pre>")
         destfile.close()

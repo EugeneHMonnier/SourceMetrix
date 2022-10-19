@@ -125,7 +125,7 @@ def scanArguments():
         opts, args = getopt.gnu_getopt(sys.argv[1:], shortOptions, longOptions)
     except getopt.GetoptError as err:
         # print help information and exit:
-        print str(err)
+        print (str(err))
         printUsage()
         sys.exit()
 
