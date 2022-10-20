@@ -31,7 +31,7 @@ CRITERIA_LABELS = {
 _loglevels = {"error": -1, "silent" : 0, "standard" : 1, "verbose" : 2}
 LOGLEVEL = _loglevels["standard"]
 GEN_DATAFILE_ONLY = False
-CHARTMINJS = "https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
+CHARTMINJS = "../javascript/Chart.min.js"
 DIAG_WIDTH = 600
 DIAG_HEIGHT = 280
 

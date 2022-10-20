@@ -7,8 +7,8 @@ $(VERBOSE).SILENT:
 
 # settings to invoke metrix++; adapt path if necessary
 PYTHON=/usr/bin/python3
-METRIXPP=/path/to/metrix++.py
-MYEXT=/path/to/metrixpp/myext/
+METRIXPP=/path/to/metrixplusplus/metrix++.py
+MYEXT=/path/to/metrixplusplus/metrixpp/myext/
 METRIXDB=metrixpp.db
 
 # excluded files or directories
@@ -17,10 +17,10 @@ EXCLUDE?=
 
 ANALYSE=script/canalyse.py
 
-CHARTMINJS=https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
+CHARTMINJS=javascript/Chart.min.js
 
 # path from where to start analysis of sourceceode
-SRCPATH?=./path/to
+SRCPATH?=./
 MODULE_BASE?=repo
 
 # configure directories
@@ -75,7 +75,7 @@ $(REPORTDIR)/index.html:
 	echo Generating HTML header of $(REPORTDIR)/index.html 
 	echo "<!DOCTYPE html>" > $(REPORTDIR)/index.html
 	echo "  <html>\n	<head>\n	  <title>$(MODULE_BASE)</title>" >> $(REPORTDIR)/index.html
-	echo "	  <script src=\"$(CHARTMINJS)\"></script>"  >> $(REPORTDIR)/index.html
+	echo "	  <script src="../$(CHARTMINJS)"></script>"  >> $(REPORTDIR)/index.html
 	echo "	  <link rel='stylesheet' type='text/css' href='$(STYLEDIR_REL)/style.css'>" >> $(REPORTDIR)/index.html
 	echo "	</head>\n  <body class='main'>" >> $(REPORTDIR)/index.html
 	echo "	  <script src='$(STYLEDIR_REL)/$(DIAGRAM_STYLE)'></script>" >> $(REPORTDIR)/index.html
